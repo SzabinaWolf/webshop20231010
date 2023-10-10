@@ -1,0 +1,64 @@
+<div class="container mt-5">
+    <div class="card w-50 mx-auto">
+        <h1 class="text-center">Rendelés elküldése</h1>
+        <div class="row ">
+            <div class="col-12">
+                <label class="m-2">Név:</label>
+                <div class="input-group mb-3 p-2">
+                    <span class="input-group-text" id="basic-addon1"><mat-icon>mood</mat-icon></span>
+                    <input [(ngModel)]="megrendeles.nev" type="text" class="form-control" placeholder="Név"
+                        aria-label="name" aria-describedby="basic-addon1">
+                </div>
+                <label class="m-2">Cím:</label>
+                <div class="input-group mb-3 p-2">
+                    <span class="input-group-text" id="basic-addon1"><mat-icon>home</mat-icon></span>
+                    <input [(ngModel)]="megrendeles.cim" type="text" class="form-control" placeholder="Cím"
+                        aria-label="address" aria-describedby="basic-addon1">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container mt-5">
+        <ng-container *ngFor="let tetel of tetelek">
+            <div class="row">
+
+                <div class="col">{{nevKereses(tetel.termekKey)}}</div>
+                <div class="col">{{tetel.db}}</div>
+                <div class="col">{{tetel.ar}}</div>
+                <div class="col"><button mat-icon-button color="warn" (click)="deleteTetel(tetel)"><mat-icon>delete</mat-icon></button></div>
+            </div>
+        </ng-container>
+        <p class="fw-bold mt-3">Összesen: {{grandTotal}} Ft</p>
+    
+    <button mat-raised-button color="primary" (click)="megrendel()">Megrendelés</button>
+    <button mat-raised-button color="warn" (click)="deleteAll()">Kosár törlése</button>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <table class="table table-danger">
+        <thead>
+            <tr>
+                <th>Termék megnevezése</th>
+                <th>Termék darabszáma</th>
+                <th>Termék ára összesen</th>
+                <th>Törlés</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let tetel of tetelek">
+                <td>{{nevKereses(tetel.termekKey)}}</td>
+                <td>{{tetel.db}}</td>
+                <td>{{tetel.ar}}</td>
+                <td><button mat-icon-button color="warn" (click)="deleteTetel(tetel)" ><mat-icon >delete</mat-icon></button></td>
+            </tr>
+        </tbody>
+        <p class="fw-bold mt-3">Összesen: {{grandTotal}} Ft</p>
+    </table>
+
+    <button mat-raised-button color="primary" (click)="megrendel()">Megrendelés</button>
+    <button mat-raised-button color="warn" (click)="deleteAll()">Kosár törlése</button>
+    
+</div>

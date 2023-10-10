@@ -1,0 +1,9 @@
+{
+  "hosting": [
+    {
+      "target": "webshop20231010",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ]
+}
